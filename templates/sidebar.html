@@ -1,0 +1,40 @@
+
+            <!-- ========== Sidebar ========== -->
+
+            <aside class="col-md-offset-1 col-md-3 sidebar">
+                <form action="{% url 'search' %}" class="search-form">
+                  <!-- Search - Widget -->
+                  <div class="col-md-12 ws-s search-widget">
+                    <div class="form-group">
+                      <input type="text" name="q" placeholder="Search ..." class="form-control" style="background-color: rgb(21, 21, 21);">
+                      <button class="submit inside-input-btn" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                </form>
+
+
+              <!-- Categories - Widget -->
+              <div class="col-md-12 ws-s categories-widget">
+                <h5 class="header-widget">Categories</h5>
+                {% for cat in category_count %}
+                    <!-- Item 1 -->
+                    <div class="widget-item">
+                      <a href="#">{{ cat.categories__title }} - <span>{{ cat.categories__title__count }}</span></a>
+                    </div>
+                {% endfor %}
+              </div><!-- / .categories-widget -->
+
+
+              <!-- Text - Widget -->
+              <div class="col-md-12 text-widget">
+                <h5 class="header-widget">Stay Updated</h5>
+                <p>Please consider subscribing to the newsletter in order to stay updated about COVID-19 healthcare tips from the professionals, and to see what the health workers have to say.</p>
+              </div><!-- / .text-widget -->
+
+            </aside><!-- / .sidebar -->
+{# these are important#}
+          </div><!-- / .row -->
+        </div><!-- / .container -->
+
+
+

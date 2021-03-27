@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <!-- ========== Page Title ========== -->
+
+        <header class="page-title pt-dark pt-plax-md-dark" data-stellar-background-ratio="0.4">
+          <div class="bg-overlay">
+            <div class="container">
+              <div class="row">
+
+                <div class="col-sm-6">
+                  <h1>Results of your search</h1>
+                </div>
+                <ol class="col-sm-6 text-right breadcrumb">
+                  <li><a href="#">Home</a></li>
+                  <li class="active">Search</li>
+                </ol>
+
+              </div>
+            </div>
+          </div>
+        </header>
+
+
+
+        <!-- ========== Blog - 3 Columns ========== -->
+
+        <div id="blog" class="section container blog-columns">
+          <div class="row ws-s">
+            {% for result in queryset %}
+            <!-- Blog Post -->
+            <div class="col-lg-4 col-md-6 mb-sm-50 ws-s">
+              <div class="blog-post">
+
+                <!-- Image -->
+                <a href="{{result.get_absolute_url}}" class="post-img"><img src="{{ result.thumbnail.url }}" alt="{{ result.title }}"></a>
+
+                <div class="bp-content">
+
+                  <!-- Meta data -->
+                  <div class="post-meta">
+                    <a href="#" class="post-date">
+                      <i class="fa fa-calendar-o"></i>
+                      <span>{{ result.timestamp|naturaltime }}</span>
+                    </a>
+                    <a href="#" class="post-comments">
+                      <i class="fa fa-comments-o"></i>
+                      <span>{{ result.comment_count }}</span>
+                    </a>
+                  </div><!-- / .meta -->
+
+                  <!-- Post Title -->
+                  <a href="{{result.get_absolute_url}}" class="post-title"><h4>{{ result.title }}</h4></a>
+
+                  <!-- Blurb -->
+                  <p>{{ result.overview }}</p>
+
+                  <!-- Link -->
+                  <a href="{{result.get_absolute_url}}" class="btn btn-small">Read More</a>
+
+                </div><!-- / .bp-content -->
+
+              </div><!-- / .blog-post -->
+            </div><!-- / .col-lg-4 -->
+            {% endfor %}
+            </div><!-- / .col-lg-4 -->
+
+          </div><!-- / .row -->
+
+
+{#          <!-- Pagination -->#}
+{#          <div class="row">#}
+{#            <nav class="blog-pagination text-center">#}
+{#              <ul class="pagination">#}
+{#                <li>#}
+{#                  <a href="#" aria-label="Previous">#}
+{#                    <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>#}
+{#                  </a>#}
+{#                </li>#}
+{#                <li><a href="#">1</a></li>#}
+{#                <li><a href="#">2</a></li>#}
+{#                <li><a href="#">...</a></li>#}
+{#                <li><a href="#">7</a></li>#}
+{#                <li>#}
+{#                  <a href="#" aria-label="Next">#}
+{#                    <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>#}
+{#                  </a>#}
+{#                </li>#}
+{#              </ul>#}
+{#            </nav>#}
+{#          </div><!-- / .row -->#}
+        </div><!-- / .blog-columns -->
+
+{% endblock %}

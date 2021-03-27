@@ -1,0 +1,62 @@
+{% load static %}
+
+
+
+{#new navbar#}
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top mega navbar-fw navbar-trans" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Logo -->
+              <a class="navbar-brand" href="/" style="position: relative"><img src="{% static 'images/covidlogo2.png' %}" alt="COVID-19 - Logo" style="position: relative; height:40px"></a>
+            </div><!-- / .navbar-header -->
+
+            <div id="navbar" class="navbar-collapse collapse" style="max-height: 875px;">
+                <!-- Navbar Links Right -->
+              <ul class="nav navbar-nav navbar-right">
+                <!-- Search -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i> Search</a>
+                  <ul class="dropdown-menu search-dropdown"\>
+                    <li>
+                        <form action="{% url 'search' %}" class="search-form">
+                          <!-- Search - Widget -->
+                            <div class="form-group" data-children-count="1">
+                              <input type="text" name="q" placeholder="Search ..." class="form-control" style="position: relative; top: 5px; background-color: rgb(28, 28, 28);">
+                            </div>
+                        </form>
+                    </li>
+                  </ul>
+
+              </li></ul><!-- / .nav .navbar-nav .navbar-right -->
+                <div class="nav navbar-nav navbar-right">
+                <li><a class="navbar-default-dark" href="/">Home</a></li>
+                <li><a class="navbar-default-dark" href="/blog">Blog</a></li>
+                <li><a class="navbar-default-dark" href="/about">About COVID-19</a></li>
+                <li><a class="navbar-default-dark" href="/faq">FAQ</a></li>
+                    {% if request.user.is_authenticated %}
+                <li><a class="navbar-default-dark" href="/accounts/logout">Log Out</a></li>
+                {% else %}
+                <li><a class="navbar-default-dark" href="/accounts/login">Log In</a></li>
+                    {% endif %}
+
+
+                <!-- / Search -->
+
+
+
+
+              </div>
+
+            </div><!--/.navbar-collapse -->
+          <!-- / .container -->
+    </div></nav>

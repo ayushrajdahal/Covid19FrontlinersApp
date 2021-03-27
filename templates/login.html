@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+   <!-- ========== Page Title ========== -->
+
+        <header class="page-title">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-md-6">
+                <h1>Login</h1>
+                <span class="subheading">Login or create account</span>
+              </div>
+
+              <ol class="col-md-6 text-right breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Login</li>
+              </ol>
+
+            </div><!-- / .row -->
+          </div>
+        </header>
+
+
+
+        <!-- ========== Login From ========== -->
+
+        <div class="login-2">
+          <div class="bg-overlay dark-bg">
+
+            <div class="container">
+              <div class="row ws-m">
+                <div class="col-md-offset-3 col-md-6 text-dark">
+
+                  <div class="form-wrapper">
+                    <div class="form-content">
+                      <h3 class="form-header">Login to your account</h3>
+
+                      <form action="post">
+                        <!-- Username -->
+                        <div class="form-group">
+                          <input type="text" id="username-login-2" class="form-control" placeholder="Enter your name">
+                          <label for="username-login-2">Username</label>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-group">
+                          <input type="password" id="pass-login-2" class="form-control" placeholder="Enter your email">
+                          <label for="pass-login-2">Password</label>
+                          <span class="pull-right"><a href="#" class="forget-pass-link">Forget password?</a></span>
+                        </div>
+                        <!-- Submit -->
+                        <input type="submit" value="Login" class="btn">
+                      </form>
+                      <span class="cards-header">or signup with</span>
+                    </div><!-- / .form-content -->
+
+                    <!-- Social Signup -->
+                    <div class="social-signup">
+                      <a href="#" class="social-card fb-card">
+                        <span class="sc-lead">Facebook</span>
+                        <span class="sc-info">Sign up with</span>
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                      <a href="#" class="social-card google-card">
+                        <span class="sc-lead">Google</span>
+                        <span class="sc-info">Sign up with</span>
+                        <i class="fa fa-google"></i>
+                      </a>
+                    </div><!-- / .social-signup -->
+                  </div><!-- / .form-wrapper -->
+
+
+                  <a href="#" class="email-signup pull-right">Signup with email</a>
+
+
+                </div><!-- / .col-md-6 -->
+              </div><!-- / .row -->
+            </div><!-- / .container -->
+
+          </div><!-- / .bg-overlay -->
+        </div><!-- / .bg-login -->
+{% endblock content %}
+
+
+
+
+<div class="container">
+  <div class="col-lg-6  mx-auto ">
+    <div class="form" style="margin-top: 20%;margin-bottom: 20%;background-color:#101010;padding: 5%;border:1px solid #1d2124;">
+      <h1 class="text-center">Sign In</h1>
+
+
+
+
+      <p>If you have not created an account yet, then please
+      <a href="/accounts/signup/">sign up</a> first.</p>
+
+
+      <form class="login" method="POST" action="/accounts/login/">
+        <input type="hidden" name="csrfmiddlewaretoken" value="s77GsXTXUgjkrvXeAATJ49IE10W0uMNhpQfkclL3nKLsaYwKFfOELAwTwTLKy5n4">
+
+
+<div id="div_id_login" class="form-group"> <label for="id_login" class="col-form-label  requiredField">
+                Login<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="login" placeholder="Username or e-mail" autofocus="autofocus" class="textinput textInput form-control" required id="id_login"> </div> </div> <div id="div_id_password" class="form-group"> <label for="id_password" class="col-form-label  requiredField">
+                Password<span class="asteriskField">*</span> </label> <div class=""> <input type="password" name="password" placeholder="Password" class="textinput textInput form-control" required id="id_password"> </div> </div> <div class="form-group"> <div id="div_id_remember" class="form-check"> <label for="id_remember" class="form-check-label"> <input type="checkbox" name="remember" class="checkboxinput form-check-input" id="id_remember">
+                    Remember Me
+                </label> </div> </div>
+
+
+        <a class="button secondaryAction" href="/accounts/password/reset/">Forgot Password?</a>
+        <button class="btn btn-primary primaryAction" type="submit">Sign In</button>
+      </form>
+      </div>
+    </div>
+  </div>

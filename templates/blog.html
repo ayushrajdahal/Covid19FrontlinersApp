@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+        <!--[if lt IE 8]>
+
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+        <!-- ========== Preloader ========== -->
+
+        <div class="preloader">
+          <img src="{% static 'images/loader.svg' %}" alt="Loading...">
+        </div>
+
+
+        <!-- ========== Page Title ========== -->
+
+        <header class="page-title pt-dark pt-plax-lg-dark" data-stellar-background-ratio="0.4">
+         <div class="bg-overlay">
+           <div class="container">
+             <div class="row">
+
+               <div class="col-sm-6">
+                 <strong><h1>Blog</h1></strong>
+                 <span class="subheading">Latest blog posts</span>
+               </div>
+               <ol class="col-sm-6 text-right breadcrumb">
+                 <li><a href="#">Home</a></li>
+                 <li class="active">Blog</li>
+               </ol>
+
+             </div>
+           </div>
+         </div>
+        </header>
+
+
+
+        <!-- ========== Blog - 1 Column ========== -->
+
+        <div id="blog" class="section container blog-classic">
+          <div class="row">
+            <div class="col-md-8">
+
+            {% for post in queryset %}
+
+
+              <!-- Blog Post 1 -->
+              <div class="col-md-12">
+                <div class="blog-post wow fadeIn" data-wow-delay=".1s" data-wow-duration="2s">
+
+                <!-- Image -->
+                <a href="{{ post.get_absolute_url }}" class="post-img"><img src="{{ post.thumbnail.url }}" alt="Blog Post"></a>
+
+                <div class="bp-content">
+
+                  <!-- Meta data -->
+                  <div class="post-meta">
+                    <a href="#" class="post-date">
+                      <i class="fa fa-calendar-o"></i>
+                      <span>{{ post.timestamp|naturaltime }}</span>
+                    </a>
+                    <a href="#" class="post-comments">
+                      <i class="fa fa-comments-o"></i>
+                      <span>{{ post.comment_count }}</span>
+                    </a>
+                  </div><!-- / .meta -->
+
+                  <!-- Post Title -->
+                  <a href="{{ post.get_absolute_url }}" class="post-title"><h3>{{ post.title }}</h3></a>
+
+                  <!-- Blurb -->
+                  <p>{{ post.overview }}</p>
+
+                  <!-- Link -->
+                  <a href="{{ post.get_absolute_url }}" class="btn-light btn-small">Read More</a>
+
+                </div><!-- / .bp-content -->
+
+                </div><!-- / .blog-post -->
+              </div><!-- / .col-md-12 -->
+            {% endfor %}
+
+
+
+
+
+
+
+{#              <!-- Blog Post 2 -->#}
+{#              <div class="col-md-12">#}
+{#                <div class="blog-post wow fadeIn" data-wow-delay=".1s" data-wow-duration="2s">#}
+{##}
+{#                <!-- Image -->#}
+{#                <a href="blog-post.html" class="post-img"><img src="http://placehold.it/750x400" alt="Blog Post 2"></a>#}
+{##}
+{#                <div class="bp-content">#}
+{##}
+{#                  <!-- Meta data -->#}
+{#                  <div class="post-meta">#}
+{#                    <a href="#" class="post-date">#}
+{#                      <i class="fa fa-calendar-o"></i>#}
+{#                      <span>August 01.2015</span>#}
+{#                    </a>#}
+{#                    <a href="#" class="post-comments">#}
+{#                      <i class="fa fa-comments-o"></i>#}
+{#                      <span>12</span>#}
+{#                    </a>#}
+{#                  </div><!-- / .meta -->#}
+{##}
+{#                  <!-- Post Title -->#}
+{#                  <a href="blog-post.html" class="post-title"><h3>Blog Post Title</h3></a>#}
+{##}
+{#                  <!-- Blurb -->#}
+{#                  <p>Lorem ipsum dolor sit amet, tempor consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua. Ut enim ad ...</p>#}
+{##}
+{#                  <!-- Link -->#}
+{#                  <a href="blog-post.html" class="btn btn-small">Read More</a>#}
+{##}
+{#                </div><!-- / .bp-content -->#}
+{##}
+{#                </div><!-- / .blog-post -->#}
+{#              </div><!-- / .col-md-12 -->#}
+{##}
+{##}
+{#              <!-- Blog Post 3 -->#}
+{#              <div class="col-md-12">#}
+{#                <div class="blog-post wow fadeIn" data-wow-delay=".1s" data-wow-duration="2s">#}
+{##}
+{#                <!-- Video | 16:9 aspect ratio -->#}
+{#                <div class="embed-responsive embed-responsive-16by9">#}
+{#                  <iframe width="560" height="315" src="https://www.youtube.com/embed/k_okcNVZqqI" allowfullscreen></iframe>#}
+{#                </div>#}
+{##}
+{#                <div class="bp-content">#}
+{##}
+{#                  <!-- Meta data -->#}
+{#                  <div class="post-meta">#}
+{#                    <a href="#" class="post-date">#}
+{#                      <i class="fa fa-calendar-o"></i>#}
+{#                      <span>August 01.2015</span>#}
+{#                    </a>#}
+{#                    <a href="#" class="post-comments">#}
+{#                      <i class="fa fa-comments-o"></i>#}
+{#                      <span>12</span>#}
+{#                    </a>#}
+{#                  </div><!-- / .meta -->#}
+{##}
+{#                  <!-- Post Title -->#}
+{#                  <a href="blog-post.html" class="post-title"><h3>Blog Post Title</h3></a>#}
+{##}
+{#                  <!-- Blurb -->#}
+{#                  <p>Lorem ipsum dolor sit amet, tempor consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua. Ut enim ad ...</p>#}
+{##}
+{#                  <!-- Link -->#}
+{#                  <a href="blog-post.html" class="btn btn-small">Read More</a>#}
+{##}
+{#                </div><!-- / .bp-content -->#}
+{##}
+{#                </div><!-- / .blog-post -->#}
+{#              </div><!-- / .col-md-12 -->#}
+{##}
+{##}
+{#              <!-- Blog Post 4 -->#}
+{#              <div class="col-md-12">#}
+{#                <div class="blog-post wow fadeIn" data-wow-delay=".1s" data-wow-duration="2s">#}
+{##}
+{#                <!-- Audio (soundcloud) -->#}
+{#                <iframe width="100%" height="166" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/213984415&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>#}
+{##}
+{#                <div class="bp-content">#}
+{##}
+{#                  <!-- Meta data -->#}
+{#                  <div class="post-meta">#}
+{#                    <a href="#" class="post-date">#}
+{#                      <i class="fa fa-calendar-o"></i>#}
+{#                      <span>August 01.2015</span>#}
+{#                    </a>#}
+{#                    <a href="#" class="post-comments">#}
+{#                      <i class="fa fa-comments-o"></i>#}
+{#                      <span>12</span>#}
+{#                    </a>#}
+{#                  </div><!-- / .meta -->#}
+{##}
+{#                  <!-- Post Title -->#}
+{#                  <a href="blog-post.html" class="post-title"><h3>Blog Post Title</h3></a>#}
+{##}
+{#                  <!-- Blurb -->#}
+{#                  <p>Lorem ipsum dolor sit amet, tempor consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua. Ut enim ad ...</p>#}
+{##}
+{#                  <!-- Link -->#}
+{#                  <a href="blog-post.html" class="btn btn-small">Read More</a>#}
+{##}
+{#                </div><!-- / .bp-content -->#}
+{##}
+{#                </div><!-- / .blog-post -->#}
+{#              </div><!-- / .col-md-12 -->#}
+
+
+              <!-- Pagination -->
+              <nav class="blog-pagination mb-sm-100">
+                <ul class="pagination">
+                  {% if queryset.has_previous %}
+                    <li>
+                    <a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" aria-label="Previous">
+                      <span aria-hidden="true"><i class="fa fa-angle-double-left"></i></span>
+                    </a>
+                    </li>
+                  {% endif %}
+                  <li><a href="#" class="page-link active">{{ queryset.number }}</a></li>
+                  {% if queryset.has_next %}
+                    <li>
+                    <a href="?{{ page_request_var }}={{ queryset.next_page_number }}" aria-label="Next">
+                      <span aria-hidden="true"><i class="fa fa-angle-double-right"></i></span>
+                    </a>
+                    </li>
+                  {% endif %}
+                </ul>
+              </nav>
+
+            </div><!-- / .col-md-8 -->
+
+
+{% include 'sidebar.html' %}
+
+
+{% endblock content %}

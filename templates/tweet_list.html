@@ -1,0 +1,47 @@
+{#    {% for tweet in tweets %}#}
+{#    <tr>#}
+{#      <th scope="row">{{ tweet.tweet_text }} {% if tweet.is_active %}<span class="badge badge-pill badge-success">Aktiv</span>{% endif %}</th>#}
+{#      <td style="white-space:nowrap;">{{ tweet.published_date }}</td>#}
+{#      <td>{% if tweet.is_active %}#}
+{#        <a class="btn btn-primary btn-sm" href="{% url 'tweet_set_inactive' pk=tweet.tweet_id %}" role="button">Deaktivieren</a>#}
+{#        {% else %}#}
+{#        <a class="btn btn-success btn-sm" href="{% url 'tweet_set_active' pk=tweet.tweet_id %}" role="button">Aktivieren</a>#}
+{#        {% endif %}#}
+{#        </td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+
+
+
+{#<!-- Twitter Feed -->#}
+{#              <div class="col-md-4 col-sm-6 mb-sm-100">#}
+{#                <div class="widget twitter-widget">#}
+{#                  <h3 class="header-widget">Recent Tweets</h3>#}
+{#                  <ul>#}
+{#                    coming soon, I haven't got the API key yet :)#}
+{#                    {% for tweet in tweets %}#}
+{#                    <li>#}
+{#                      <a href="#"><i class="fa fa-twitter"></i></a>#}
+{#                      <p> {{ tweet.tweet_text }} by <a href="https://twitter.com/aayush_raj">@aayush_raj</a> <span>- {{ tweet.published_date }}</span></p>#}
+{#                    </li>#}
+{#                    {% endfor %}#}
+{#                  </ul>#}
+{#                </div><!-- / .widget -->#}
+{#              </div><!-- / .col-md-3 -->#}
+
+ <div class="col-md-4 col-sm-6 mb-sm-100">
+                <div class="widget twitter-widget">
+                  <h3 class="header-widget">Recent Tweets</h3>
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                      <p> "And I would especially like to thank Sir Andrew Witty and Dr Ngozi Okonjo-Iweala for agreeing ... approach"-@DrTedros
+ #COVID19 by <a href="https://twitter.com/WHO">@WHO</a> <span>- 10h</span></p>
+                    </li>
+                      <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                      <p> "Today, WHO is proud to be uniting with many partners to launch the Access to #COVID19 Tools Accelerator, or the ACT Accelerator"-@DrTedros by <a href="https://twitter.com/WHO">@WHO</a> <span>- 10h</span></p>
+                    </li>
+                  </ul>
+                </div><!-- / .widget -->
+              </div><!-- / .col-md-3 -->

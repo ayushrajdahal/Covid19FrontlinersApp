@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+{% load humanize %}
+{% include "head.html" %}
+
+<body id="page-top" class="dark-bg" data-spy="scroll" data-target=".navbar">
+
+    {% include 'header.html' %}
+
+
+    <header class="page-title pt-dark pt-plax-lg-dark" data-stellar-background-ratio="0.4">
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+                  <h1>Login & authentication</h1>
+
+                </div>
+                <ol class="col-sm-6 text-right breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li class="active">Login</li>
+                </ol>
+          </div>
+
+        </div>
+    </header>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+
+
+    {% include "scripts.html" %}
+
+</body>
+
+</html>
+

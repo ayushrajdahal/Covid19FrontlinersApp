@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <style>
+        .blog-post-content img{
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+    </style>
+        <!-- ========== Preloader ========== -->
+
+        <div class="preloader">
+          <img src="{% static 'images/loader.svg' %}" alt="Loading...">
+        </div>
+        <!-- ========== Page Title ========== -->
+
+        <header class="page-title pt-dark pt-plax-md-dark" data-stellar-background-ratio="0.4">
+          <div class="bg-overlay">
+            <div class="container">
+              <div class="row">
+
+
+
+              </div>
+            </div>
+          </div>
+        </header>
+
+
+
+        <!-- ========== Single Blog Post ========== -->
+        
+        <div id="blog" class="section container blog-classic">
+          <div class="row">
+            <div class="col-md-8 mb-sm-160">
+              
+                <!-- Blog Post -->
+                <div class="col-md-12 blog-post-single wow fadeIn" data-wow-delay=".1s" data-wow-duration="2s">
+
+                  <!-- Image -->
+                  <img class="img-responsive post-img" src="{{ post.thumbnail.url }}" alt="Blog Post 1">
+
+                  <!-- Meta data -->
+                  <div class="post-meta">
+                    <a href="#" class="post-date">
+                      <i class="fa fa-calendar-o"></i>
+                      <span>{{ post.timestamp|naturaltime }}</span>
+                    </a>
+                    <a href="#" class="post-comments">
+                      <i class="fa fa-comments-o"></i>
+                      <span>{{ post.comment_count }}</span>
+                    </a>
+                  </div><!-- / .meta -->
+
+                  <!-- Title -->
+                  <h1 class="post-title">{{ post.title }}</h1>
+                  
+
+                  <div class="blog-post-content">
+                      {{ post.content | safe }}
+                  </div>
+                  
+                </div><!-- / .blog-post-single -->
+                
+                
+
+                <!-- ========== Comments ========== -->
+
+                <div class="row">
+                  <div class="col-md-12 blog-post-comments">
+                    <h4 class="blog-section-title">Comments <span>({{ post.comments.count }})</span></h4>
+
+                    <!-- Comment -->
+                  {% for comment in post.get_comments %}
+                    <div class="bp-comment">
+                      <div class="comment-avatar"><i class="fa fa-user"></i></div>
+                        <div class="comment-info">
+                        <h6 class="comment-name">{{ comment.user.username }}</h6>
+                        <span class="comment-time">{{ comment.timestamp | naturaltime }}</span>
+                      </div>
+                      <p class="comment-content">{{ comment.content }}</p>
+                    </div><!-- / .bp-comment -->
+                  {% endfor %}
+
+
+                    {% if request.user.is_authenticated %}
+                        <!-- Leave a comment -->
+                        <div class="comment-form">
+                          <h4 class="blog-section-title">Leave a comment</h4>
+
+                          <form method="POST" action="." class="fa-commenting-form">
+                            {% csrf_token %}
+
+                            <!-- Comment -->
+                            <div class="col-md-12 form-group no-gap">
+                                {{ form }}
+                                <label for="txt-forms">Comment *</label>
+                            </div>
+
+                            <input type="submit" value="Send Comment" class="btn pull-right">
+                          </form>
+                        </div><!-- / .comment-form -->
+
+                        {% else %}
+                            <div class="col-md-6 mb-sm-30"><button class="btn-text-light btn-large"><a href="/accounts/login/">Login to comment</a></button></div>
+                    {% endif %}
+
+
+                  </div><!-- / .blog-post-comments -->
+                </div><!-- / .row -->
+
+
+                <!-- Post Navigation -->
+                <div class="row">
+                  <nav class="blog-post-nav">
+                      {% if post.previous_post %}
+                    <a href="{{ post.previous_post.get_absolute_url }}" class="prev-btn">Prev post</a>
+                        {% endif %}
+                      {% if post.next_post %}
+                    <a href="{{ post.next_post.get_absolute_url }}" class="next-btn">Next post</a>
+                    {% endif %}
+                  </nav>
+                </div>
+
+            </div><!-- / .col-md-8 -->
+            {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}
+
+
+          </div><!-- / .row -->
+        </div><!-- / .container -->
+
+{% endblock content %}

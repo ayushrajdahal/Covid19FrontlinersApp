@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You</p><p class="browserupgrade"> are using an <strong>outdated</strong> browser.
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <!-- ========== Preloader ========== -->
+
+        <div class="preloader">
+          <img src="{% static 'images/loader.svg' %}" alt="Loading...">
+        </div>
+
+
+        <!-- ========== Hero Cover ========== -->
+
+        <div id="home" class="agency2-hero">
+          <div class="bg-overlay">
+
+            <div id="large-header" class="large-header">
+              <canvas id="demo-canvas" class="demo-canvas"></canvas>
+
+              <!-- Hero Content -->
+              <div class="hero-content-wrapper">
+                <div class="hero-content">
+                  <h1 class="hero-lead">Stay informed, Stay safe!</h1>
+                  <h4 class="h-alt hero-secondary">Welcome to the COVID-19 Blog</h4>
+                  <a href="#about" class="btn btn-light">Explore</a>
+
+                  <!-- Scroller -->
+                  <a href="#about" class="scroller">
+                    <span class="scroller-text">scroll down</span>
+                    <span class="linea-basic-magic-mouse"></span>
+                  </a>
+
+                </div><!-- / .hero-content -->
+              </div><!-- / .hero-content-wrapper -->
+
+            </div><!-- / #large-header -->
+
+          </div><!-- / .bg-overlay -->
+        </div><!-- / #home -->
+
+
+
+        <!-- ========== About - Section ========== -->
+
+        <section id="about" class="container">
+          <div class="row section">
+
+            <header class="sec-heading">
+              <h2>covid-19 blog</h2>
+              <span class="subheading">Connecting you directly to the front liners!</span>
+            </header>
+
+            <div class="col-md-12">
+                <blockquote><center>
+                    Stay updated about COVID-19 by reading about it directly from the health officials, and see what they have to say. You can also help them by providing support as needed, which is going to be posted in the blogs.<br> If you're a health worker, please Log in if you're interested in sharing your experiences and suggestions.
+                </center></blockquote>
+            </div>
+          </div><!-- / .row -->
+          <div class="row ws-m">
+            <div class="col-md-12 text-center">
+              <a href="/blog" class="btn-text-light btn-large">Read the blogs</a>
+            </div>
+          </div>
+
+        </section><!-- / .container -->
+
+
+
+        <!-- ========== Blog Preview ========== -->
+
+        <div class="dark-bg">
+          <section id="blog" class="section container blog-columns blog-preview">
+            <div class="row">
+
+              <header class="sec-heading">
+                <h2>Latest from the COVID-19 Blog</h2>
+                <span class="subheading">Read the blogs to stay updated about the pandemic. From the frontliners.</span>
+              </header>
+
+                {% for obj in latest %}
+              <!-- Blog Post 1 -->
+              <div class="col-lg-4 col-md-6 mb-sm-50">
+                <div class="blog-post wow fadeIn" data-wow-duration="2s">
+
+                  <!-- Image -->
+                  <a href="{{ obj.get_absolute_url }}" class="post-img"><img src="{{ obj.thumbnail.url }}" alt="Blog Post 1"></a>
+
+                  <div class="bp-content">
+
+                    <!-- Meta data -->
+                    <div class="post-meta">
+                      <a href="#" class="post-date">
+                        <i class="fa fa-calendar-o"></i>
+                        <span>{{ obj.timestamp|naturaltime }}</span>
+                      </a>
+                      <a href="{{ obj.get_absolute_url }}" class="post-comments">
+                        <i class="fa fa-comments-o"></i>
+                        <span>{{ obj.comment_count }}</span>
+                      </a>
+
+                    </div><!-- / .meta -->
+
+                    <!-- Post Title -->
+                    <a href="{{ obj.get_absolute_url }}" class="post-title"><h4>{{ obj.title }}</h4></a>
+
+                    <!-- Blurb -->
+                    <p>{{ obj.overview|linebreaks|truncatechars:200 }}</p>
+
+                    <!-- Link --><strong>
+                    <a href="{{ obj.get_absolute_url }}" class="btn-ghost-light btn-small">Read More</a>
+                    </strong>
+                  </div><!-- / .bp-content -->
+
+                </div><!-- / .blog-post -->
+              </div><!-- / .col-lg-4 -->
+
+                {% endfor %}
+
+            </div><!-- / .row -->
+          </section><!-- / .container -->
+        </div><!-- / .gray-bg -->
+
+
+
+{#        <!-- ========== CTA - Newsletter Signup ========== -->#}
+{##}
+{#        <div class="cta-newsletter cta-dark">#}
+{#          <div class="bg-overlay">#}
+{#            <div class="cta-wrapper">#}
+{##}
+{#              <h3 class="cta-lead h-alt wow fadeIn" data-wow-delay=".1s" data-wow-duration="1s">Join our newsletter</h3>#}
+{##}
+{#              <form class="mc-ajax mc-form subscribe-form" _lpchecked="1">#}
+{##}
+{#                <!-- Email -->#}
+{#                <input type="email" name="EMAIL" placeholder="Your email address" id="mc-email" class="wow fadeInUp" data-wow-delay=".1s" data-wow-duration="1s" >#}
+{##}
+{#                <!-- Send Button -->#}
+{#                <input type="submit" name="subscribe" value="Join Us" class="btn btn-light btn-large wow fadeInUp mc-send-btn" data-wow-delay=".1s" data-wow-duration="1s">#}
+{##}
+{#                <!-- Info (uncomment this for extra info) -->#}
+{#                <!-- <label for="mc-email" class="mc-info"></label> -->#}
+{##}
+{#                <!-- Ajax message -->#}
+{#                <div class="subscribe-result"></div>#}
+{##}
+{#              </form>#}
+{##}
+{#            </div><!-- / .cta-wrapper -->#}
+{#          </div><!-- / .bg-overlay -->#}
+{#        </div><!-- / .cta-newsletter -->#}
+
+    {% endblock content %}
