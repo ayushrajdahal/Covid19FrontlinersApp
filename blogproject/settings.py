@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'django.contrib.humanize',
 
     'posts',
@@ -152,8 +153,8 @@ TINYMCE_DEFAULT_CONFIG = {
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 
@@ -168,7 +169,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -177,8 +177,16 @@ EMAIL_HOST_USER = 'covid.19frontliners.site@gmail.com'
 DEFAULT_FROM_EMAIL = 'covid.19frontliners.site@gmail.com'
 EMAIL_HOST_PASSWORD = 'jaysambho128'
 
-
-
 MAILCHIMP_API_KEY = '8e03a418794fd7f511338735fc58a4fe-us19'
 MAILCHIMP_DATA_CENTER = 'us19'
 MAILCHIMP_EMAIL_LIST_ID = '689b0f60c4'
+
+
+#azure blob setup
+DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
+
+MEDIA_LOCATION = "media"
+
+AZURE_ACCOUNT_NAME = "dhedu"
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
