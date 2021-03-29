@@ -3,10 +3,6 @@ $(document).ready(function () {
 
     'use strict';
 
-    // ------------------------------------------------------- //
-    // For demo purposes only
-    // ------------------------------------------------------ //
-
     var stylesheet = $('link#theme-stylesheet');
     $( "<link id='new-stylesheet' rel='stylesheet'>" ).insertAfter(stylesheet);
     var alternateColour = $('link#new-stylesheet');

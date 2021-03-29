@@ -1,11 +1,8 @@
 (function($){
 	'use strict';
 
-/* --------------------------------------------------
-	Initialization
--------------------------------------------------- */
 
-    // Initialize all functions when the document is ready.
+    // to initialize all functions when the document is ready.
 	$(document).ready(function(){
 
 		initNavbar();
@@ -51,10 +48,8 @@
 	});
 
 
-/* --------------------------------------------------
-	Navigation | Navbar
--------------------------------------------------- */
-	
+//navbar
+
 	function initNavbar(){
 
 		// Sticky Nav & Transparent Background
@@ -131,10 +126,7 @@
 
 
 
-/* --------------------------------------------------
-	Scroll Nav
--------------------------------------------------- */
-
+//scroll nav
 	function initScroller () {
 
 		$('#navbar').localScroll({
@@ -148,10 +140,7 @@
 
 
 
-
-/* --------------------------------------------------
-	Parallax
--------------------------------------------------- */
+//Parallax
 
 	
 	function initParallax () {
@@ -172,95 +161,9 @@
 
 
 
-/* --------------------------------------------------
-	Counters Circles
--------------------------------------------------- */
-
-	function initCountCirc() {
-		
-		var hasCircles = $('#skillsCircles').hasClass('circles-counters');
-
-		if (hasCircles) {
-
-			var waypoint = new Waypoint({
-			  element: document.getElementById('skillsCircles'),
-			  handler: function() {
-
-			    	var options = {
-					  useEasing : true,
-					  separator : ''
-					};
-					
-					$('.chart').easyPieChart({
-						size: '150',
-						lineWidth: 2,
-						lineCap: 'square',
-						trackColor: '',
-					    barColor: '#f8f8f8',
-					    scaleColor: false,
-					    easing: 'easeOutBack',
-					    animate: {
-					    	duration: 1600,
-					    	enabled: true 
-					    }
-					});
-					// init only once
-					this.destroy();
-				},
-				offset: '80%',
-			});
-
-		}
-
-	} // initCountCirc
 
 
-
-	function initCountCircMin() {
-		
-		var hasCircles = $('#skillsCirclesMin').hasClass('circles-counters-dark-bg');
-
-		if (hasCircles) {
-
-			var waypoint = new Waypoint({
-			  element: document.getElementById('skillsCirclesMin'),
-			  handler: function() {
-
-			    	var options = {
-					  useEasing : true,
-					  separator : ''
-					};
-					
-					$('.chart').easyPieChart({
-						size: '150',
-						lineWidth: 2,
-						lineCap: 'square',
-						trackColor: '',
-					    barColor: '#f8f8f8',
-					    scaleColor: false,
-					    easing: 'easeOutBack',
-					    animate: {
-					    	duration: 1600,
-					    	enabled: true 
-					    }
-					});
-					// init only once
-					this.destroy();
-				},
-				offset: '80%',
-			});
-
-		}
-
-	} // initCountCirc
-
-
-
-
-/* --------------------------------------------------
-	Number Counters
--------------------------------------------------- */
-
+//number count
 	function initCountNbr () {
 
 		var hasCounters = $('#counters').hasClass('count-wrapper');
@@ -340,9 +243,7 @@
 
 
 
-/* --------------------------------------------------
-	Sliders
--------------------------------------------------- */
+//	Sliders
 	
 	function initSliders() {
 
@@ -539,11 +440,8 @@
 	} // initSliders
 
 
+//	Portfolio
 
-/* --------------------------------------------------
-	Portfolio
--------------------------------------------------- */
-	
 	function initPortfolio () {
 
 		// Filters
@@ -604,9 +502,6 @@
 
 
 
-/* --------------------------------------------------
-	Light Gallery
--------------------------------------------------- */
 
 	function initGallery () {
 
@@ -661,9 +556,6 @@
 
 
 
-/* --------------------------------------------------
-	Blog Masonry Layout
--------------------------------------------------- */
 
 	function initBlogMasonry () {
 
@@ -679,9 +571,6 @@
 
 
 
-/* --------------------------------------------------
-  Contact Pages
--------------------------------------------------- */
 
 	$('.show-map').on('click', function(e){
 	  e.preventDefault();
@@ -697,9 +586,6 @@
 
 
 
-/* --------------------------------------------------
-	Animation
--------------------------------------------------- */
 
 	function initAnimation () {
 		
@@ -710,9 +596,6 @@
 
 
 
-/* --------------------------------------------------
-	Video Background
--------------------------------------------------- */
 
 	function initVideoBg () {
 
@@ -731,9 +614,6 @@
 
 
 
-/* --------------------------------------------------
-	Ken Burns Slider
--------------------------------------------------- */
 	function initKenburns () {
 		
 		var hasKenburns = $('.kenburn-hero')[0];
@@ -761,9 +641,6 @@
 
 
 
-/* --------------------------------------------------
-	Coming Soon - Countdown
--------------------------------------------------- */
 
 	function initCountdown () {
 
@@ -782,9 +659,6 @@
 
 
 
-/* --------------------------------------------------
-	Shop Price Filter - (range slider)
--------------------------------------------------- */
 	function initRangeSlider () {
 
 		$( "#shop-slider-range" ).slider({
@@ -807,9 +681,6 @@
 
 
 
-/* --------------------------------------------------
-	Contact Form JS Validation & AJAX call 
--------------------------------------------------- */
 $(function() {
 
 //	Regular Expressions
