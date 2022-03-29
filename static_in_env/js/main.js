@@ -160,6 +160,84 @@
 	}
 
 
+	function initCountCirc() {
+
+		var hasCircles = $('#skillsCircles').hasClass('circles-counters');
+
+		if (hasCircles) {
+
+			var waypoint = new Waypoint({
+			  element: document.getElementById('skillsCircles'),
+			  handler: function() {
+
+			    	var options = {
+					  useEasing : true,
+					  separator : ''
+					};
+
+					$('.chart').easyPieChart({
+						size: '150',
+						lineWidth: 2,
+						lineCap: 'square',
+						trackColor: '',
+					    barColor: '#f8f8f8',
+					    scaleColor: false,
+					    easing: 'easeOutBack',
+					    animate: {
+					    	duration: 1600,
+					    	enabled: true 
+					    }
+					});
+					// init only once
+					this.destroy();
+				},
+				offset: '80%',
+			});
+
+		}
+
+	} // initCountCirc
+
+
+
+	function initCountCircMin() {
+
+		var hasCircles = $('#skillsCirclesMin').hasClass('circles-counters-dark-bg');
+
+		if (hasCircles) {
+
+			var waypoint = new Waypoint({
+			  element: document.getElementById('skillsCirclesMin'),
+			  handler: function() {
+
+			    	var options = {
+					  useEasing : true,
+					  separator : ''
+					};
+
+					$('.chart').easyPieChart({
+						size: '150',
+						lineWidth: 2,
+						lineCap: 'square',
+						trackColor: '',
+					    barColor: '#f8f8f8',
+					    scaleColor: false,
+					    easing: 'easeOutBack',
+					    animate: {
+					    	duration: 1600,
+					    	enabled: true 
+					    }
+					});
+					// init only once
+					this.destroy();
+				},
+				offset: '80%',
+			});
+
+		}
+
+	} // initCountCirc
+
 
 
 

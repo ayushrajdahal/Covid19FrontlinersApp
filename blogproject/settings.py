@@ -173,13 +173,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'covid.19frontliners.site@gmail.com'
-DEFAULT_FROM_EMAIL = 'covid.19frontliners.site@gmail.com'
-EMAIL_HOST_PASSWORD = 'jaysambho128'
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_ID')
+EMAIL_HOST_PASSWORD = os.environ.get('HOST_PWD')
 
-MAILCHIMP_API_KEY = '8e03a418794fd7f511338735fc58a4fe-us19'
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_KEY')
 MAILCHIMP_DATA_CENTER = 'us19'
-MAILCHIMP_EMAIL_LIST_ID = '689b0f60c4'
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get('EMAIL_LIST_ID')
 
 
 #azure blob setup
