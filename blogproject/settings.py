@@ -182,6 +182,10 @@ MAILCHIMP_DATA_CENTER = 'us19'
 MAILCHIMP_EMAIL_LIST_ID = os.environ.get('EMAIL_LIST_ID')
 
 
+
+
+
+
 #azure blob setup
 DEFAULT_FILE_STORAGE = 'backend.custom_azure.AzureMediaStorage'
 
